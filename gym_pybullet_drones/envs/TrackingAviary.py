@@ -1,5 +1,6 @@
 import numpy as np
 import pybullet as p
+from gymnasium.envs.registration import register
 from gymnasium import spaces
 from gym_pybullet_drones.envs.BaseAviary import BaseAviary
 from gym_pybullet_drones.utils.enums import DroneModel, Physics, ActionType, ObservationType
@@ -109,3 +110,15 @@ class TrackingAviary(BaseAviary):
         """Reset target position on episode start."""
         self.target_pos = np.array([0.0, 0.0, 0.5])
         return super().reset(seed=seed, options=options), {}
+    
+
+register(
+    id="tracking-aviary-v0",
+    entry_point="gym_pybullet_drones.envs:TrackingAviary",
+    kwargs={
+        "num_drones": 2,
+        "aggregate": False,  # True multi-agent
+        "obs": ObservationType.KIN,
+        "act": ActionType.RPM
+    }
+)
