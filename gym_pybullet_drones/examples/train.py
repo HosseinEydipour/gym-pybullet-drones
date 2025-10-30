@@ -2,6 +2,7 @@ import gymnasium as gym
 from stable_baselines3 import PPO
 from stable_baselines3.common.vec_env import DummyVecEnv, VecNormalize
 from stable_baselines3.common.callbacks import EvalCallback
+import gym_pybullet_drones.envs.navigation_env  # Add this line to register the custom env
 
 # Make env
 def make_env():
