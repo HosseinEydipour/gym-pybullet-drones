@@ -199,7 +199,7 @@ class BetaAviary(BaseAviary):
 
         """
         #### Action vector ######## P0            P1            P2            P3
-        act_lower_bound = np.array([[0.,           0.,           0.,           0.] for i in range(self.NUM_DRONES)])
+        act_lower_bound = np.array([[0.,           0.,           0.,           0.          ] for i in range(self.NUM_DRONES)])
         act_upper_bound = np.array([[self.MAX_RPM, self.MAX_RPM, self.MAX_RPM, self.MAX_RPM] for i in range(self.NUM_DRONES)])
         return spaces.Box(low=act_lower_bound, high=act_upper_bound, dtype=np.float32)
     
